@@ -24,6 +24,10 @@ Run `/reload-plugins` in threads that are already open. Needs macOS and a Claude
 - A thread is unread when its turn ended or it asked a question while off screen, until you open it or send it a prompt.
 - On another keyboard layout, set the `key` option to the character your Option combination types. The default `¬` is what `⌥L` types on a US or Dutch keyboard. `⌘` combinations are not possible.
 
+## Shortcut without the prompt box
+
+A mod only sees keys typed in the prompt box. For a shortcut that works wherever the focus is, use the script in [`raycast/`](raycast/next-unread.sh): in Raycast, add that folder under Settings → Extensions → Script Commands and record `⌥L` as the hotkey of **Next unread Claude thread**. It is plain bash, so any other hotkey tool can run it too.
+
 ## Limitations
 
 - It relies on the app's session files and `claude://` links. Neither is documented, so an app update can break it.
