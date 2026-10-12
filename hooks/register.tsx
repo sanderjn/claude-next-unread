@@ -260,8 +260,9 @@ export const register: Register = (on, options) => {
 
     return (
       <Box>
+        <Text color="claude">● </Text>
         <Text>
-          ● {first.title} {what}
+          {first.title} {what}
           {rest}{' '}
         </Text>
         <Button key="jump" label={`Next unread${hint}`} hotkey={hotkey} variant="primary" onPress={() => jump($)} />
