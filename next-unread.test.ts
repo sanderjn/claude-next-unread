@@ -101,29 +101,32 @@ const type = ($, text: string, inputText: string) =>
   })
 
 test('Option+L jumps from any prompt box and leaves the draft alone', async ($, on) => {
-  const { runs } = host(on, { files: waiting(2000, 1000, 'question') })
+  const { runs, clock } = host(on, { files: waiting(2000, 1000, 'question') })
   await start($)
 
   expect((await type($, 'take ', '¬')).text).toBe('take ')
+  await clock.settle()
   expect(runs).toContainEqual(['open', `claude://claude.ai/epitaxy/${OTHER}`])
 })
 
 test('Option+L types nothing when no thread is unread', async ($, on) => {
-  const { runs } = host(on)
+  const { runs, clock } = host(on)
   await start($)
 
   expect((await type($, 'take ', '¬')).text).toBe('take ')
+  await clock.settle()
   expect(runs.some(argv => argv[0] === 'open')).toBe(false)
 })
 
 test('a digit as the key jumps from an empty prompt box only', { options: { key: '0' } }, async ($, on) => {
-  const { runs } = host(on, { files: waiting(2000, 1000) })
+  const { runs, clock } = host(on, { files: waiting(2000, 1000) })
   await start($)
 
   expect((await type($, 'take ', '0')).text).toBe('take 0')
   expect(runs.some(argv => argv[0] === 'open')).toBe(false)
 
   expect((await type($, '', '0')).text).toBe('')
+  await clock.settle()
   expect(runs).toContainEqual(['open', `claude://claude.ai/epitaxy/${OTHER}`])
 })
 

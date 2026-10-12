@@ -234,9 +234,14 @@ export const register: Register = (on, options) => {
     }
 
     // a letter or digit is typed as usual when nothing is unread; the Option character never is
-    if ((await jump($)) === null && isTypable) {
+    const [target] = await read($, unread)
+
+    if (target === undefined && isTypable) {
       return next(e)
     }
+
+    // the prompt box gets its answer before the app switches threads, or the character travels along
+    void jump($).catch(() => {})
 
     return { text: e.text, cursor: e.cursor }
   })
