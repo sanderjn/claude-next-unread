@@ -1,0 +1,16 @@
+{
+  "name": "claude-next-unread",
+  "owner": {
+    "name": "Sander Janssen"
+  },
+  "metadata": {
+    "description": "The next-unread mod for the Claude desktop app."
+  },
+  "plugins": [
+    {
+      "name": "next-unread",
+      "source": "./",
+      "description": "Conductor-style unread threads for the Claude desktop app: a notice when another thread finishes or asks a question while you were elsewhere, and Option+L to jump to it."
+    }
+  ]
+}

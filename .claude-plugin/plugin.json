@@ -1,0 +1,28 @@
+{
+  "name": "next-unread",
+  "version": "0.2.0",
+  "description": "Conductor-style unread threads for the Claude desktop app: a notice when another thread finishes or asks a question while you were elsewhere, and Option+L to jump to it.",
+  "author": {
+    "name": "Sander Janssen",
+    "url": "https://github.com/sanderjn"
+  },
+  "homepage": "https://github.com/sanderjn/claude-next-unread",
+  "repository": "https://github.com/sanderjn/claude-next-unread",
+  "license": "MIT",
+  "keywords": [
+    "mod",
+    "desktop",
+    "unread",
+    "threads",
+    "conductor"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "key": {
+      "type": "string",
+      "title": "Jump key",
+      "description": "The character that jumps to the next unread thread when typed in the prompt box. The default ¬ is what Option+L types on a US or Dutch Mac keyboard, so Option+L jumps. A letter or digit only jumps from an empty prompt box. Empty turns the key off; the button and /next-unread keep working.",
+      "default": "¬"
+    }
+  }
+}
