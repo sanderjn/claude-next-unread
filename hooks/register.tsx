@@ -10,6 +10,8 @@ type Paths = { id: string; markers: string; sessions: string }
 // what Option+L types on a US or Dutch Mac keyboard
 const OPTION_L = '¬'
 const LINK = 'claude://claude.ai/epitaxy/'
+// the app's own unread dot in the sidebar
+const DOT = '#fbb136'
 const POLL_MS = 1000
 const DOUBLE_PRESS_MS = 400
 const NEWEST_FOCUS = `grep -oh '"lastFocusedAt":[0-9]*' "$0"/local_*.json | cut -d: -f2 | sort -n | tail -1`
@@ -260,7 +262,7 @@ export const register: Register = (on, options) => {
 
     return (
       <Box>
-        <Text color="claude">● </Text>
+        <Text color={DOT}>• </Text>
         <Text>
           {first.title} {what}
           {rest}{' '}

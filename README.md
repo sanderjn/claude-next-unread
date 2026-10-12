@@ -5,7 +5,7 @@ Conductor-style unread threads for the Claude desktop app.
 When a thread in the Code tab finishes or asks a question while you are in another thread, every other thread shows a notice above the prompt box. `⌥L` jumps to the oldest unread thread. A half-typed message stays where it is.
 
 ```
-● Fix the invoices finished (+2 more)   [ Next unread ⌥L ]
+• Fix the invoices finished (+2 more)   [ Next unread ⌥L ]
 ```
 
 ## Install
