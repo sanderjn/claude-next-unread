@@ -1,6 +1,6 @@
 {
   "name": "next-unread",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Conductor-style unread threads for the Claude desktop app: a notice when another thread finishes or asks a question while you were elsewhere, and Option+L to jump to it.",
   "author": {
     "name": "Sander Janssen",
