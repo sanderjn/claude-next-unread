@@ -2,7 +2,7 @@
 
 Conductor-style unread threads for the Claude desktop app.
 
-When a thread in the Code tab finishes or asks a question while you are in another thread, every other thread shows a notice above the prompt box. `⌥L` jumps to the oldest unread thread. A half-typed message stays where it is.
+When a thread in the Code tab finishes or asks a question while you are in another thread, every other thread shows a notice above the prompt box. `⌥L` jumps to the oldest unread thread.
 
 <img src="docs/band.png" width="870" alt="The notice above the prompt box: a thread finished, three more are unread, and a Next unread button">
 
