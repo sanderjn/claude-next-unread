@@ -2,7 +2,7 @@ export type Unread = {
   sessionId: string
   title: string
   at: number
-  kind: 'done' | 'question'
+  kind: 'done' | 'question' | 'permission'
 }
 
 declare module 'claude-code' {

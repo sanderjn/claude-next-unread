@@ -2,7 +2,7 @@
 
 Conductor-style unread threads for the Claude desktop app.
 
-When a thread in the Code tab finishes or asks a question while you are in another thread, every other thread shows a notice above the prompt box. `⌥L` jumps to the oldest unread thread.
+When a thread in the Code tab finishes, asks a question or needs your approval while you are in another thread, every other thread shows a notice above the prompt box. `⌥L` jumps to the oldest unread thread.
 
 <img src="docs/band.png" width="870" alt="The notice above the prompt box: a thread finished, three more are unread, and a Next unread button">
 
@@ -19,7 +19,7 @@ Run `/reload-plugins` in threads that are already open. Needs macOS and a Claude
 ## Use
 
 - `⌥L` in any prompt box, the **Next unread** button, or `/next-unread`.
-- A thread is unread when its turn ended or it asked a question while off screen, until you open it or send it a prompt.
+- A thread is unread when its turn ended, it asked a question or it needs your approval while off screen, until you open it or send it a prompt.
 - On another keyboard layout, set the `key` option to the character your Option combination types. The default `¬` is what `⌥L` types on a US or Dutch keyboard. `⌘` combinations are not possible.
 
 ## Shortcut without the prompt box
@@ -29,7 +29,6 @@ A mod only sees keys typed in the prompt box. For a shortcut that works wherever
 ## Limitations
 
 - It relies on the app's session files and `claude://` links. Neither is documented, so an app update can break it.
-- A thread waiting on a permission prompt does not count as unread.
 
 ## License
 

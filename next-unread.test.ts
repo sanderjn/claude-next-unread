@@ -30,6 +30,7 @@ const host = (on, { files = {}, env = HOST, isOnScreen = false } = {}) => {
   on('command.register', (_, e) => ({ value: { command: e.name } }))
   on('turn.start', (_, e) => ({ turnId: e.turnId }))
   on('turn.complete', (_, e) => ({ text: e.answer }))
+  on('classic.PermissionRequest', () => ({}))
   on('prompt.edit', (_, e) => ({ text: e.text + e.inputText, cursor: e.cursor + e.inputText.length }))
   on('ui.render', ($, e) => $.ui.resolve(e).Box({}))
   on('mcp.call', () => ({
@@ -148,6 +149,17 @@ test('a turn that ends off screen leaves a marker, and the next turn takes it aw
 
   await $.turn.start({ text: 'next', turnId: 't2' })
   expect(disk[`${MARKERS}/${SELF}.json`]).toBeUndefined()
+})
+
+test('a permission request off screen leaves a marker, a question keeps its own', async ($, on) => {
+  const { disk } = host(on)
+  await start($)
+
+  await $.classic.PermissionRequest({ tool_name: 'AskUserQuestion', tool_input: {} })
+  expect(disk[`${MARKERS}/${SELF}.json`]).toBeUndefined()
+
+  await $.classic.PermissionRequest({ tool_name: 'Bash', tool_input: { command: 'git push' } })
+  expect(JSON.parse(disk[`${MARKERS}/${SELF}.json`])).toEqual({ at: 5000, kind: 'permission' })
 })
 
 test('a turn that ends on screen leaves no marker', async ($, on) => {

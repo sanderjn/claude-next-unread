@@ -230,6 +230,15 @@ export const register: Register = (on, options) => {
     }
   })
 
+  on('classic.PermissionRequest', async ($, e, next) => {
+    // a question asks for permission too, and already has its own marker
+    if (e.tool_name !== 'AskUserQuestion') {
+      await flag($, 'permission')
+    }
+
+    return next(e)
+  })
+
   on('prompt.edit', async ($, e, next) => {
     if (key === '' || e.inputText !== key || (isTypable && e.text !== '')) {
       return next(e)
@@ -258,7 +267,7 @@ export const register: Register = (on, options) => {
 
     const { Box, Button, Text } = $.ui.resolve(e)
     const rest = list.length > 1 ? ` (+${list.length - 1} more)` : ''
-    const what = first.kind === 'question' ? 'has a question' : 'finished'
+    const what = { done: 'finished', question: 'has a question', permission: 'needs approval' }[first.kind]
 
     return (
       <Box>
