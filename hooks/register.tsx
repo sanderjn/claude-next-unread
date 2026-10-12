@@ -262,7 +262,7 @@ export const register: Register = (on, options) => {
 
     return (
       <Box>
-        <Box marginRight={2}>
+        <Box marginRight={1}>
           <Text color={DOT}>•</Text>
         </Box>
         <Text>
